@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Shiongmao Wok</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            btn: '#A61B18',
+                            frame: '#E6C9A1',
+                            grey: '#D9D9D9',
+                            darkStart: '#232429',
+                            darkEnd: '#14141A',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Tajawal', 'Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#14141A] text-brand-grey font-sans overflow-x-hidden relative min-h-screen flex flex-col justify-between">
+
+    <div class="absolute top-0 left-0 w-full h-[580px] md:h-[650px] overflow-hidden pointer-events-none z-0">
+        <img src="images/China-paint2.png" alt="Traditional Ink Art Backdrop" class="w-full h-full object-cover block opacity-100">
+    </div>
+
+    <div class="absolute top-[780px] left-[-50px] md:left-[-100px] w-[140px] md:w-[230px] h-auto opacity-70 pointer-events-none z-0 select-none">
+        <img src="images/effect2.png" alt="Asian Calligraphy Left" class="w-full h-auto object-contain">
+    </div>
+    <div class="absolute top-[1150px] right-0 2xl:right-0 w-24 md:w-36 opacity-70 pointer-events-none z-0 select-none">
+        <img src="images/effect2.png" alt="Asian Calligraphy Right" class="w-full h-auto object-contain">
+    </div>
+    <div class="absolute bottom-[200px] -right-16 w-[320px] md:w-[450px] opacity-70 brightness-150 contrast-125 pointer-events-none z-0 ">
+        <img src="images/effect.png" alt="Brush Stroke Ink Effect" class="w-full h-auto object-contain">
+    </div>
+
+    <header class="absolute top-0 left-0 w-full z-50 bg-transparent border-none">
+        <div class="max-w-7xl mx-auto px-6 h-28 flex items-center justify-between relative">
+            <a href="index.html" class="flex items-center">
+                <img src="images/logo1.png" alt="Shiongmao Logo" class="h-44 md:h-56 w-auto object-contain transition-transform duration-300 hover:scale-105">
+            </a>
+            <nav class="hidden md:flex items-center space-x-12 absolute left-1/2 transform -translate-x-1/2">
+                <a href="index.html#hero" data-i18n="home" class="hover:text-brand-frame text-white/80 transition-colors font-medium text-base">Home</a>
+                <a href="menu.html" data-i18n="menu" class="text-brand-frame transition-colors font-bold text-base border-b-2 border-brand-frame pb-1">Menu</a>
+            </nav>
+            
+            <div class="hidden md:flex items-center gap-4">
+                <button id="desktop-lang-btn" onclick="toggleLanguage()" class="px-3 py-1.5 border border-brand-frame/30 rounded-xl text-xs font-bold text-brand-frame hover:bg-brand-frame/10 transition-all">
+                    العربية
+                </button>
+                <button onclick="openCart()" class="relative p-2.5 text-brand-frame hover:text-white transition-colors focus:outline-none flex items-center justify-center bg-[#1C1D22]/60 rounded-full border border-brand-frame/20 hover:border-brand-frame/60">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h12l1 12H4L5 9z"></path>
+                    </svg>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-brand-btn text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center scale-0 transition-transform duration-300 shadow-md">0</span>
+                </button>
+                <div data-i18n="comingSoon" class="bg-brand-btn text-white px-6 py-2.5 rounded-full font-bold text-sm tracking-wide shadow-lg shadow-brand-btn/20 transition-all hover:scale-105 duration-300 select-none">
+                    Coming Soon !
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3 md:hidden">
+                <button onclick="toggleLanguage()" class="px-2.5 py-1 text-[11px] border border-brand-frame/30 rounded-lg text-brand-frame font-bold">
+                    العربية
+                </button>
+                <button onclick="openCart()" class="relative p-2 text-brand-frame">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h12l1 12H4L5 9z"></path>
+                    </svg>
+                </button>
+                <button id="menu-btn" class="text-brand-frame focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-darkEnd/95 backdrop-blur-md border-b border-brand-frame/10 px-6 py-4 space-y-3">
+            <a href="index.html#hero" data-i18n="home" class="block text-brand-frame font-medium">Home</a>
+            <a href="menu.html" data-i18n="menu" class="block text-brand-frame font-bold border-l-2 border-brand-frame pl-2">Menu</a>
+        </div>
+    </header>
+
+    <main class="relative z-10 flex-grow">
+        <div class="pt-64 md:pt-72 pb-12 text-center max-w-7xl mx-auto px-6">
+            <div class="space-y-3 relative z-10 select-none">
+                <h1 data-i18n="title" class="text-3xl md:text-[52px] font-semibold text-[#E6C9A1] tracking-wider leading-[110%] uppercase drop-shadow-md">
+                    SHIONGMAO WOK MENU
+                </h1>
+                <p data-i18n="subtitle" class="text-xl md:text-[52px] font-semibold text-white tracking-wide leading-[110%] drop-shadow-sm">
+                    - Discover Our Cuisines
+                </p>
+            </div>
+
+            <div id="filter-bar" class="mt-10 flex flex-wrap justify-center items-center gap-3 md:gap-6 bg-[#111115]/95 backdrop-blur-md p-2 rounded-2xl border-2 border-[#A61B18] max-w-4xl mx-auto relative z-10 shadow-[0_10px_30px_rgba(166,27,24,0.3)] transform translate-y-10 md:translate-y-16">
+                <button onclick="renderMenuGrid('all')" data-i18n="catAll" class="tab-btn active-tab px-5 py-2.5 text-xs md:text-sm font-bold rounded-xl transition-all">ALL</button>
+                <button onclick="renderMenuGrid('appetizers')" data-i18n="catAppetizers" class="tab-btn px-5 py-2.5 text-xs md:text-sm font-bold rounded-xl transition-all">APPETIZERS</button>
+                <button onclick="renderMenuGrid('wok')" data-i18n="catWok" class="tab-btn px-5 py-2.5 text-xs md:text-sm font-bold rounded-xl transition-all">WOK SPECIALTIES</button>
+                <button onclick="renderMenuGrid('sushi')" data-i18n="catSushi" class="tab-btn px-5 py-2.5 text-xs md:text-sm font-bold rounded-xl transition-all">SIGNATURE SUSHI</button>
+                <button onclick="renderMenuGrid('desserts')" data-i18n="catDesserts" class="tab-btn px-5 py-2.5 text-xs md:text-sm font-bold rounded-xl transition-all">DESSERTS</button>
+                <button onclick="renderMenuGrid('drinks')" data-i18n="catDrinks" class="tab-btn px-5 py-2.5 text-xs md:text-sm font-bold rounded-xl transition-all">DRINKS</button>
+            </div>
+        </div>
+
+        <section class="max-w-7xl mx-auto px-6 pt-32 pb-24 relative">
+            <div id="menu-sections" class="relative z-10"></div>
+        </section>
+    </main>
+
+    <footer class="w-full bg-[#14141A] border-t border-white/5 relative z-50 mt-auto">
+        <div class="w-full bg-black">
+            <img src="images/logo2.png" alt="Shiongmao Fuji Full Banner" class="w-full h-auto block opacity-95">
+        </div>
+        <div class="w-full bg-[#0b0b0d] py-4 border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2 text-brand-frame hover:text-white transition-colors duration-300">
+                    <svg class="w-4 h-4 text-brand-frame" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                    </svg>
+                    <a href="tel:+201001234567" class="font-bold tracking-wider text-sm">+20 100 123 4567</a>
+                </div>
+                <div class="text-[10px] text-brand-frame/30 tracking-widest uppercase text-center">
+                    &copy; 2026 Shiongmao Wok. All Rights Reserved.
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="text-brand-frame hover:text-white transition-all transform hover:scale-110" aria-label="WhatsApp">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.022-.08-.124-.22-.364-.34-.24-.12-1.418-.7-1.638-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-.992-.367-1.89-1.167-.698-.62-1.17-1.39-1.305-1.62-.137-.23-.015-.355.1-.475.103-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-1.4-1.3-.77 0-1.4.63-1.4 1.4 0 .73.3 1.4.9 2.2 1.4 1.9 3.2 3.2 5.5 3.9.73.23 1.3.31 1.8.31.73 0 1.4-.1 1.9-.3.6-.2 1.4-.7 1.6-1.4.2-.7.2-1.3.1-1.4zM12 2C6.48 2 2 6.48 2 12c0 2.17.7 4.19 1.88 5.86L2.1 22l4.28-1.74C8.01 21.3 10.03 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.83 0-3.53-.56-4.94-1.52l-.35-.24-2.58 1.05 1.07-2.52-.26-.38C3.96 14.99 3.4 13.56 3.4 12c0-4.74 3.86-8.6 8.6-8.6 4.74 0 8.6 3.86 8.6 8.6s-3.86 8.6-8.6 8.6z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-brand-frame hover:text-white transition-all transform hover:scale-110" aria-label="X">
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-brand-frame hover:text-white transition-all transform hover:scale-110" aria-label="Instagram">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="cart-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] hidden" onclick="closeCart()"></div>
+    <div id="cart-drawer" class="fixed top-0 bottom-0 left-0 h-full w-full max-w-md bg-[#14141A] border-r border-brand-frame/10 z-[105] p-6 flex flex-col justify-between -translate-x-full transition-transform duration-300">
+        <div>
+            <div class="flex items-center justify-between border-b border-white/5 pb-4 mb-6">
+                <h3 data-i18n="cartTitle" class="text-xl font-bold text-white flex items-center gap-2 font-serif">
+                    <svg class="w-5 h-5 text-brand-frame" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h12l1 12H4L5 9z"></path>
+                    </svg>
+                    Shopping Cart
+                </h3>
+                <button onclick="closeCart()" class="text-white/40 hover:text-white p-1 rounded-lg hover:bg-white/5 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="cart-items" class="space-y-4 overflow-y-auto max-h-[60vh] pr-1"></div>
+        </div>
+        <div class="border-t border-white/5 pt-4 space-y-4">
+            <div class="flex justify-between items-center text-base font-bold text-white">
+                <span data-i18n="totalAmount">Total Amount:</span>
+                <span id="cart-total" class="text-[#E6C9A1]">0.00 EGP</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+                <button onclick="clearCart()" data-i18n="clearAll" class="w-full py-3 bg-white/5 hover:bg-white/10 text-white/60 hover:text-white rounded-xl text-sm font-bold border border-white/5">
+                    Clear All
+                </button>
+                <button id="cart-confirm-btn" onclick="goToCheckout()" data-i18n="checkout" class="w-full py-3 bg-brand-btn hover:bg-brand-btn/90 text-white rounded-xl text-sm font-bold opacity-40 pointer-events-none">
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="fixed bottom-6 left-6 z-[200] bg-gradient-to-r from-[#232429] to-[#14141A] border-2 border-[#E6C9A1] px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-10 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-emerald-500/10 p-1.5 rounded-xl text-emerald-500">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+            </svg>
+        </div>
+        <p id="toast-message" class="text-sm font-bold text-white"></p>
+    </div>
+
+    <script src="js/menu.js"></script>
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    </script>
+</body>
+</html>

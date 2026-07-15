@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiongmao Wok - Japanese Tradition, Wok Perfected</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            btn: '#A61B18',
+                            frame: '#E6C9A1',
+                            grey: '#D9D9D9',
+                            darkStart: '#232429',
+                            darkEnd: '#14141A',
+                            lightStart: '#F9E0C4',
+                            lightEnd: '#FAE2C6'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#14141A] text-brand-grey font-sans overflow-x-hidden">
+
+    <header class="absolute top-0 left-0 w-full z-50 bg-transparent border-none">
+        <div class="max-w-7xl mx-auto px-6 h-28 flex items-center justify-between relative">
+            <a href="#" class="flex items-center">
+                <img src="images/logo1.png" alt="Shiongmao Logo" class="h-44 md:h-56 w-auto object-contain transition-transform duration-300 hover:scale-105">
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-12 absolute left-1/2 transform -translate-x-1/2">
+                <a href="#hero" data-i18n="navHome" class="text-brand-frame transition-colors font-bold text-base border-b-2 border-brand-frame pb-1">Home</a>
+                <a href="menu.html" data-i18n="navMenu" class="hover:text-brand-frame text-white/80 transition-colors font-medium text-base">Menu</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <button id="desktop-lang-btn" onclick="toggleLanguage()" class="px-3 py-1.5 border border-brand-frame/30 rounded-xl text-xs font-bold text-brand-frame hover:bg-brand-frame/10 transition-all">
+                    العربية
+                </button>
+                <div data-i18n="comingSoon" class="bg-brand-btn text-white px-6 py-2.5 rounded-full font-bold text-sm tracking-wide shadow-lg shadow-brand-btn/20 transition-all hover:scale-105 duration-300 select-none">
+                    Coming Soon !
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3 md:hidden">
+                <button id="mobile-lang-btn" onclick="toggleLanguage()" class="px-2.5 py-1 text-[11px] border border-brand-frame/30 rounded-lg text-brand-frame font-bold">
+                    العربية
+                </button>
+                <button id="menu-btn" class="text-brand-frame focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-darkEnd/95 backdrop-blur-md border-b border-brand-frame/10 px-6 py-4 space-y-3">
+            <a href="#hero" data-i18n="navHome" class="block text-brand-frame font-bold border-l-2 border-brand-frame pl-2">Home</a>
+            <a href="menu.html" data-i18n="navMenu" class="block text-white/80 hover:text-brand-frame font-medium">Menu</a>
+            <div data-i18n="comingSoon" class="text-center bg-brand-btn text-white py-3 rounded-full font-bold text-sm select-none">Coming Soon !</div>
+        </div>
+    </header>
+
+    <section id="hero" class="relative min-h-screen flex flex-col justify-between pt-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-30 w-full pb-6 flex-grow">
+            <div class="lg:col-span-6 space-y-5 text-center lg:text-left">
+                <h1 class="text-5xl md:text-6xl font-sans font-black text-white leading-tight uppercase tracking-tight">
+                    <span data-i18n="heroTitle1">SHIONGMAO</span> <br>
+                    <span data-i18n="heroTitle2" class="text-brand-frame text-4xl md:text-5xl font-medium block mt-1">- Japanese Tradition, <br>Wok Perfected.</span>
+                </h1>
+                <p data-i18n="heroDesc" class="text-brand-grey text-base md:text-lg max-w-lg mx-auto lg:mx-0 leading-relaxed opacity-90">
+                    Experience within the part of originative sushi muxehg, Parrfion wetris ummest of erandal nonedlarations and bustonn uncompamishing dedications.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                    <a href="menu.html" data-i18n="ourMenuBtn" class="w-full sm:w-auto bg-brand-btn hover:bg-brand-btn/90 text-white text-center px-8 py-4 rounded-xl font-bold transition-all transform hover:-translate-y-1 shadow-lg shadow-brand-btn/30">
+                        Our Menu
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-6 flex justify-center lg:justify-end relative h-[400px] md:h-[500px]">
+                <div class="absolute inset-0 flex items-center justify-center lg:justify-end">
+                    <img src="images/Sushiplate.png" alt="Special Sushi Plate" class="absolute w-[125%] md:w-[140%] max-w-none h-auto object-contain drop-shadow-[0_35px_60px_rgba(0,0,0,0.95)] animate-float z-30 lg:-right-20">
+                    <div class="absolute w-[350px] md:w-[450px] h-[350px] md:h-[450px] rounded-full bg-brand-frame/5 blur-3xl z-0 lg:-right-10"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full relative z-10 -mt-20 md:-mt-28 overflow-hidden pointer-events-none">
+            <div class="w-full h-auto">
+                <img src="images/China-paint.png" alt="Traditional Ink Art Backdrop" class="w-full h-auto min-h-[220px] object-cover md:object-fill block opacity-95 mix-blend-multiply">
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="relative z-30 -mt-10 md:-mt-12 pt-14 pb-16 bg-transparent">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div class="col-span-12 text-center mb-6">
+                <h3 data-i18n="topRated" class="text-2xl md:text-3xl font-serif font-bold text-white tracking-wide drop-shadow-md">
+                    Top Rated Dishes
+                </h3>
+                <div class="w-16 h-[2px] bg-brand-frame mx-auto mt-2 opacity-60"></div>
+            </div>
+
+            <div class="lg:col-span-7 grid grid-cols-3 gap-4">
+                <div class="relative overflow-hidden rounded-2xl aspect-square border border-brand-frame/30 shadow-2xl group transition-all duration-300 bg-brand-darkStart/40 backdrop-blur-sm">
+                    <img src="images/wok1.png" alt="Sake Nigiri" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="relative overflow-hidden rounded-2xl aspect-square border border-brand-frame/30 shadow-2xl group transition-all duration-300 bg-brand-darkStart/40 backdrop-blur-sm">
+                    <img src="images/wok2.png" alt="Aburi Sake" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="relative overflow-hidden rounded-2xl aspect-square border border-brand-frame/30 shadow-2xl group transition-all duration-300 bg-brand-darkStart/40 backdrop-blur-sm">
+                    <img src="images/wok3.png" alt="Emperor Wok" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 space-y-4 text-center lg:text-left">
+                <h2 data-i18n="wokDishesTitle" class="text-xl md:text-2xl font-serif font-bold text-white tracking-wide drop-shadow-md">Wok Dishes</h2>
+                <p data-i18n="wokDishesDesc" class="text-brand-grey/90 text-sm md:text-base leading-relaxed max-w-sm mx-auto lg:mx-0 drop-shadow-sm">
+                    Susté strom rellued soo deshus tuu saturn ndlfr artexcait biet with siltimate inpresentation.
+                </p>
+                
+                <div class="pt-2 flex items-center justify-center lg:justify-start gap-3 group">
+                    <a href="menu.html" data-i18n="learnMore" class="text-xs font-bold uppercase tracking-widest text-brand-frame hover:text-white transition-colors duration-300">
+                        LEARN MORE
+                    </a>
+                    <span class="w-8 h-[2px] bg-brand-btn block transition-all duration-300 group-hover:w-12"></span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="chef" class="py-20 relative overflow-hidden bg-transparent z-10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 flex justify-center lg:justify-start">
+                <div class="relative w-full max-w-2xl overflow-hidden rounded-[2rem] shadow-2xl border border-brand-frame/20">
+                    <img src="images/Chef.png" alt="Chef Spotlight Card" class="w-full h-auto object-contain block">
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 space-y-6 text-center lg:text-left relative min-h-[300px] flex flex-col justify-center pl-0 lg:pl-8">
+                <div class="space-y-2 relative z-10">
+                    <h2 data-i18n="artTitle" class="text-3xl md:text-4xl font-serif font-bold text-white tracking-wide">
+                        Art of Shiongmao Wok
+                    </h2>
+                    <div class="w-16 h-[2px] bg-brand-frame mx-auto lg:mx-0 opacity-60"></div>
+                </div>
+                
+                <div class="space-y-4 text-brand-grey/80 text-sm md:text-base leading-relaxed relative z-10">
+                    <p data-i18n="artDesc1">
+                        The autisonioe of srmeacious deredol processoving ingredients, entertitury, and flavors and precelant pramurants.
+                    </p>
+                    <p data-i18n="artDesc2">
+                        Einangmue section of neroch notioon favoration and yeictan oveta courreentely to cnagnition and smellous contclion.
+                    </p>
+                </div>
+
+                <div class="absolute -bottom-24 -right-16 w-[320px] md:w-[420px] opacity-80 brightness-150 contrast-125 pointer-events-none z-0">
+                    <img src="images/effect.png" alt="Brush Stroke Ink Effect" class="w-full h-auto object-contain">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 border-t border-white/5 relative z-10 bg-transparent">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            <div id="gallery" class="lg:col-span-7 flex flex-col justify-between">
+                <div class="mb-6">
+                    <span data-i18n="galleryTag" class="text-brand-frame font-bold tracking-widest uppercase block text-xs md:text-sm">GALLERY</span>
+                    <div class="w-12 h-0.5 bg-brand-frame mt-2 rounded-full opacity-60"></div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="relative overflow-hidden rounded-2xl aspect-square border border-brand-frame/30 shadow-2xl group transition-all duration-300 bg-brand-darkStart/40 backdrop-blur-sm">
+                        <img src="images/Gallery1.png" alt="Caviar Salmon Sushi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="relative overflow-hidden rounded-2xl aspect-square border border-brand-frame/30 shadow-2xl group transition-all duration-300 bg-brand-darkStart/40 backdrop-blur-sm">
+                        <img src="images/Gallery2.png" alt="Modern Asian Interior" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="relative overflow-hidden rounded-2xl aspect-square border border-brand-frame/30 shadow-2xl group transition-all duration-300 bg-brand-darkStart/40 backdrop-blur-sm">
+                        <img src="images/Gallery3.png" alt="Exquisite Sea Urchin Sushi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 space-y-6 text-center lg:text-left mt-8 lg:mt-0 pl-0 lg:pl-8">
+                <div class="space-y-2">
+                    <h2 data-i18n="storyTitle" class="text-3xl md:text-4xl font-serif font-bold text-white tracking-wide">
+                        Our Visual Story
+                    </h2>
+                    <div class="w-16 h-[2px] bg-brand-frame mx-auto lg:mx-0 opacity-60"></div>
+                </div>
+                
+                <div class="space-y-4 text-brand-grey/80 text-sm md:text-base leading-relaxed">
+                    <p data-i18n="storyDesc1">
+                        A glimpse into the meticulous craft of our master chefs, capturing the precise moment where premium ingredients transcend into culinary art.
+                    </p>
+                    <p data-i18n="storyDesc2">
+                        Every dish is a testament to timeless Japanese techniques, framed perfectly to elevate both taste and visual ambiance.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="w-full bg-[#14141A] border-t border-white/5 relative z-10 overflow-hidden">
+        <div class="w-full h-40 md:h-48 overflow-hidden">
+            <img src="images/logo2.png" alt="Shiongmao Fuji Banner" class="w-full h-full object-cover block">
+        </div>
+
+        <div class="w-full bg-black/80 py-6 border-t border-white/5 relative z-10">
+            <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-2 text-brand-frame hover:text-white transition-colors duration-300">
+                    <svg class="w-4 h-4 text-brand-frame" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                    </svg>
+                    <a href="tel:+201001234567" class="font-bold tracking-wider text-sm">+20 100 123 4567</a>
+                </div>
+
+                <div class="text-[10px] md:text-[11px] text-brand-frame/30 tracking-widest uppercase text-center order-3 md:order-2">
+                    &copy; 2026 Shiongmao Wok. All Rights Reserved.
+                </div>
+
+                <div class="flex items-center gap-6 order-2 md:order-3">
+                    <a href="#" class="text-brand-frame hover:text-white transition-all duration-300 transform hover:scale-110" aria-label="WhatsApp">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.022-.08-.124-.22-.364-.34-.24-.12-1.418-.7-1.638-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-.992-.367-1.89-1.167-.698-.62-1.17-1.39-1.305-1.62-.137-.23-.015-.355.1-.475.103-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-1.4-1.3-.77 0-1.4.63-1.4 1.4 0 .73.3 1.4.9 2.2 1.4 1.9 3.2 3.2 5.5 3.9.73.23 1.3.31 1.8.31.73 0 1.4-.1 1.9-.3.6-.2 1.4-.7 1.6-1.4.2-.7.2-1.3.1-1.4zM12 2C6.48 2 2 6.48 2 12c0 2.17.7 4.19 1.88 5.86L2.1 22l4.28-1.74C8.01 21.3 10.03 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.83 0-3.53-.56-4.94-1.52l-.35-.24-2.58 1.05 1.07-2.52-.26-.38C3.96 14.99 3.4 13.56 3.4 12c0-4.74 3.86-8.6 8.6-8.6 4.74 0 8.6 3.86 8.6 8.6s-3.86 8.6-8.6 8.6z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-brand-frame hover:text-white transition-all duration-300 transform hover:scale-110" aria-label="X">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-brand-frame hover:text-white transition-all duration-300 transform hover:scale-110" aria-label="Instagram">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

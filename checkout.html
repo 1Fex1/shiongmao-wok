@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Shiongmao Wok</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              btn: '#A61B18',
+              frame: '#E6C9A1',
+              grey: '#D9D9D9',
+              darkStart: '#232429',
+              darkEnd: '#14141A',
+            }
+          },
+          fontFamily: {
+            sans: ['Tajawal', 'Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    input[type="radio"] { accent-color: #A61B18; }
+  </style>
+</head>
+<body class="bg-[#14141A] text-brand-grey font-sans overflow-x-hidden relative min-h-screen flex flex-col justify-between">
+
+  <header class="w-full bg-transparent border-none relative z-50 pt-0 pb-2">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <a href="menu.html" class="flex items-center -mt-8">
+        <img src="images/logo1.png" alt="Shiongmao Full Logo" class="h-40 md:h-48 w-auto object-contain transition-transform duration-300 hover:scale-105">
+      </a>
+      <a href="menu.html" id="back-link" class="text-sm font-bold text-white/50 hover:text-[#E6C9A1] transition duration-300 -mt-6">
+        ← Back to Menu
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 pt-4 pb-12 grid grid-cols-1 lg:grid-cols-12 gap-10 relative z-10 flex-grow w-full">
+    <div class="lg:col-span-5">
+      <div class="bg-gradient-to-b from-[#232429]/60 to-[#14141A]/60 border border-[#E6C9A1]/15 p-6 rounded-3xl h-fit shadow-xl relative z-10">
+        <h2 id="cart-title-txt" class="text-xl font-serif font-bold text-[#E6C9A1] mb-6 border-b border-white/5 pb-4">Your Cart Items</h2>
+        <div id="summary-items" class="space-y-4 max-h-[40vh] overflow-y-auto pr-2 divide-y divide-white/5"></div>
+        <div class="mt-6 pt-4 border-t border-white/5 flex justify-between items-center text-lg font-bold text-white">
+          <span id="total-title-txt">Total Amount:</span>
+          <span id="summary-total" class="text-[#E6C9A1]" dir="ltr">0.00 EGP</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-7 bg-[#232429]/20 border border-white/5 rounded-3xl p-6 md:p-8 shadow-xl relative z-10">
+      <h2 id="section-delivery-title" class="text-xl font-serif font-bold text-white mb-6">Delivery & Order Details</h2>
+
+      <div class="flex gap-4 mb-8">
+        <label class="flex-1 cursor-pointer">
+          <input type="radio" name="order_type" value="cash" class="peer sr-only" checked onchange="toggleFormFields()">
+          <div class="p-4 text-center rounded-2xl border border-white/10 peer-checked:border-[#A61B18] peer-checked:bg-[#A61B18]/10 transition-all h-full flex flex-col justify-center">
+            <span id="label-type-dine" class="block font-bold text-white text-sm mb-1">Dine-in / Pickup</span>
+            <span id="sub-type-dine" class="text-[11px] text-brand-grey/50">Pay cash at restaurant</span>
+          </div>
+        </label>
+        
+        <label class="flex-1 cursor-pointer">
+          <input type="radio" name="order_type" value="online" class="peer sr-only" onchange="toggleFormFields()">
+          <div class="p-4 text-center rounded-2xl border border-white/10 peer-checked:border-[#A61B18] peer-checked:bg-[#A61B18]/10 transition-all h-full flex flex-col justify-center">
+            <span id="label-type-deliv" class="block font-bold text-white text-sm mb-1">Online Delivery</span>
+            <span id="sub-type-deliv" class="text-[11px] text-brand-grey/50">Vodafone Cash / InstaPay</span>
+          </div>
+        </label>
+      </div>
+
+      <div id="error-msg" class="hidden bg-red-500/10 border border-red-500/40 text-red-400 p-3 rounded-xl text-xs font-bold mb-5 text-center"></div>
+
+      <form id="checkout-form" onsubmit="submitOrder(event)" class="space-y-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div class="space-y-1">
+            <label id="lbl-name" class="block text-xs font-semibold text-[#E6C9A1]">Full Name</label>
+            <input type="text" id="cust-name" required class="w-full bg-[#14141A]/80 border border-brand-frame/20 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-btn transition">
+          </div>
+          <div class="space-y-1">
+            <label id="lbl-phone" class="block text-xs font-semibold text-[#E6C9A1]">Phone Number</label>
+            <input type="tel" id="cust-phone" required class="w-full bg-[#14141A]/80 border border-brand-frame/20 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-btn transition" placeholder="e.g., 01001234567" dir="ltr">
+          </div>
+        </div>
+
+        <div id="cash-fields" class="block space-y-1">
+          <label id="lbl-table" class="block text-xs font-semibold text-[#E6C9A1]">Table Number (Optional)</label>
+          <input type="number" id="cust-table" class="w-full bg-[#14141A]/80 border border-brand-frame/20 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-btn transition">
+        </div>
+
+        <div id="online-fields" class="hidden space-y-5">
+          <div class="space-y-1">
+            <label id="lbl-address" class="block text-xs font-semibold text-[#E6C9A1]">Delivery Address</label>
+            <textarea id="cust-address" rows="2" class="w-full bg-[#14141A]/80 border border-brand-frame/20 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-btn transition"></textarea>
+          </div>
+          
+          <div class="bg-gradient-to-b from-[#232429]/40 to-[#14141A]/40 p-4 rounded-2xl border border-white/5">
+            <label id="lbl-method" class="block text-xs font-semibold text-[#E6C9A1] mb-3">Select Transfer Method:</label>
+            <div class="flex gap-6">
+              <label class="flex items-center gap-2 cursor-pointer text-sm text-white">
+                <input type="radio" name="payment_method" value="vodafone" checked>
+                <span>Vodafone Cash</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer text-sm text-white">
+                <input type="radio" name="payment_method" value="instapay">
+                <span>InstaPay</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" id="submit-order-btn" class="w-full mt-6 bg-[#A61B18] text-white font-bold text-sm py-4 rounded-xl hover:bg-[#A61B18]/90 transition-all shadow-lg shadow-[#A61B18]/20 transform hover:-translate-y-0.5">
+          Place Order & Confirm
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <div id="success-modal" class="hidden fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-5 backdrop-blur-sm opacity-0 transition-opacity duration-300">
+    <div id="success-modal-content" class="bg-[#14141A] border border-[#E6C9A1]/20 rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl transform scale-95 transition-transform duration-300">
+      <div class="w-16 h-20 bg-emerald-500/10 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-5 border border-emerald-500/20">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <h3 id="modal-title" class="text-xl font-bold text-white mb-2">Order Confirmed!</h3>
+      <p id="modal-desc" class="text-brand-grey/60 text-xs leading-relaxed mb-6">Thank you for choosing Shiongmao Wok! Your order has been securely placed and is being prepared.</p>
+      <div class="bg-white/5 border border-white/5 rounded-2xl p-3 mb-6">
+        <span id="modal-ref-lbl" class="text-[10px] text-brand-grey/40 block mb-1 uppercase tracking-wider">Your Order Reference</span>
+        <span class="text-[#E6C9A1] font-bold tracking-widest text-lg" id="order-ref-number" dir="ltr">#SW-123456</span>
+      </div>
+      <button onclick="closeSuccessAndRedirect()" id="modal-home-btn" class="w-full bg-[#A61B18] text-white font-bold py-3.5 rounded-xl hover:bg-[#A61B18]/90 transition-all shadow-lg">
+        Back to Home
+      </button>
+    </div>
+  </div>
+
+  <script src="js/checkout.js"></script>
+</body>
+</html>
