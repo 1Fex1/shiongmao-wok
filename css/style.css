@@ -1,0 +1,166 @@
+.menu-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(264px, 1fr)) !important;
+  gap: 24px !important;
+  justify-items: center !important;
+  width: 100% !important;
+  max-width: 80rem !important; 
+  margin-left: auto !important; 
+  margin-right: auto !important;
+  padding: 20px 0 !important;
+}
+
+.menu-card {
+  width: 264px !important;
+  height: 385px !important; 
+  padding: 24px 20px 20px 20px !important; 
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-color: transparent !important; 
+  border: none !important; 
+  border-radius: 0 !important; 
+  position: relative !important;
+  overflow: visible !important; 
+  transition: transform 0.3s ease, filter 0.3s ease !important;
+  box-sizing: border-box !important;
+}
+
+.menu-card:hover {
+  transform: translateY(-6px) !important;
+  filter: drop-shadow(0 12px 20px rgba(230, 201, 161, 0.25)) !important;
+}
+
+.best-seller-badge {
+  position: absolute !important;
+  top: 0 !important;            
+  left: 0 !important;            
+  width: 140px !important;        
+  height: 80px !important;       
+  z-index: 30 !important;       
+  pointer-events: none !important; 
+  overflow: visible !important;
+}
+
+.menu-grid,
+.menu-grid > *,
+.menu-card {
+  overflow: visible !important;
+}
+
+.best-seller-badge img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+.menu-card img.product-img {
+  width: 100% !important;
+  height: 135px !important;
+  object-fit: cover !important;
+  border-radius: 12px !important;
+}
+
+.menu-card.special-rare:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 12px 30px rgba(230, 201, 161, 0.3) !important;
+}
+
+.rare-badge {
+  position: absolute !important;
+  top: 15px !important;
+  left: 15px !important;
+  background: linear-gradient(135deg, #E6C9A1 0%, #C5A87B 100%) !important;
+  color: #14141A !important;
+  font-size: 10px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  padding: 4px 10px !important;
+  border-radius: 6px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+  z-index: 20 !important;
+  letter-spacing: 0.5px !important;
+}
+
+.menu-card img {
+  width: 100% !important;
+  height: 135px !important;
+  object-fit: cover !important;
+  border-radius: 12px !important;
+}
+
+.menu-section-group {
+  margin-bottom: 50px !important; 
+  width: 100%;
+}
+
+.category-header-title {
+  max-width: 80rem !important;
+  margin: 0 auto 20px auto !important;
+  text-align: left !important; 
+  padding: 0 10px !important;
+}
+
+.category-header-title h2 {
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  color: #F8F9FA !important; 
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+}
+
+.category-header-title h2 .separator {
+  color: #E6C9A1 !important; 
+  margin: 0 5px !important;
+}
+
+.category-header-title h2 .subtitle {
+  color: #E6C9A1 !important; 
+  font-weight: 400 !important;
+  text-transform: none !important; 
+}
+
+.tab-btn {
+  color: rgba(217, 217, 217, 0.6);
+}
+.tab-btn:hover {
+  color: #ffffff;
+}
+.tab-btn.active-tab {
+  background-color: #A61B18 !important;
+  color: #ffffff !important;
+  box-shadow: 0 10px 20px rgba(166, 27, 24, 0.4) !important;
+  border: 1px solid rgba(230, 201, 161, 0.3) !important;
+}
+
+#cart-items::-webkit-scrollbar,
+#summary-items::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+#cart-items::-webkit-scrollbar-track,
+#summary-items::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border-radius: 10px !important;
+}
+
+#cart-items::-webkit-scrollbar-thumb,
+#summary-items::-webkit-scrollbar-thumb {
+  background-color: #232429 !important; 
+  border-radius: 10px !important;
+  border: 1px solid rgba(230, 201, 161, 0.1) !important;
+}
+
+#cart-items::-webkit-scrollbar-thumb:hover,
+#summary-items::-webkit-scrollbar-thumb:hover {
+  background-color: #E6C9A1 !important; 
+}
+
+#cart-items,
+#summary-items {
+  scrollbar-width: thin !important;
+  scrollbar-color: #232429 rgba(255, 255, 255, 0.02) !important;
+}
